@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Collab QuickLink for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     MIT
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="collab" translate="label" sortOrder="150">
+            <label>Collab Extensions</label>
+        </tab>
+        <section id="collab_quicklink" translate="label" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Quicklink</label>
+            <tab>collab</tab>
+            <resource>Collab_Quicklink::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="priority" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use High Priority</label>
+                    <comment>
+                        Defaults to low-priority (rel=prefetch or XHR). For high-priority, attempts to use fetch()
+                        or falls back to XHR.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="timeout" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Timeout</label>
+                    <comment>
+                        The requestIdleCallback timeout, in milliseconds. The browser must be idle for the configured
+                        duration before prefetching.
+                    </comment>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="throttle" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Throttle</label>
+                    <comment>The concurrency limit for simultaneous requests</comment>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="threshold" translate="label comment" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Threshold</label>
+                    <comment>
+                        The area percentage of each link that must have entered the viewport to be fetched,
+                        in its decimal form (e.g. 0.25 = 25%).
+                    </comment>
+                    <validate>validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="prerender" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Prerender</label>
+                    <comment>
+                        Whether to switch from the default prefetching mode to the prerendering mode for the links
+                        inside the viewport. The prerendering mode (when this option is set to true) will fallback to
+                        the prefetching mode if the browser does not support prerender.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="delay" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delay</label>
+                    <comment>
+                        The amount of time each link needs to stay inside the viewport before being prefetched,
+                        in milliseconds.
+                    </comment>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="ignores" translate="label comment" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignores</label>
+                    <comment>
+                        Determine if a URL should be prefetched.
+                        When a RegExp tests positive, a Function returns true, or an Array contains the string,
+                        then the URL is not prefetched.
+                        Comma separated list of RegExp, Function, or Array.
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

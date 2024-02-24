@@ -1,0 +1,37 @@
+<?php
+/**
+ * @category  Collab
+ * @package   Collab\QuickLink
+ * @author    Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright 2024 Collab
+ * @license   MIT
+ */
+
+/**
+ * @var Template $block
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var Escaper $escaper
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+$viewModel = $block->getData('quick_link_view_model');
+$initOptions = $viewModel->getOptions();
+$ignores[] = $viewModel->getIgnores();
+?>
+
+<?php
+$scriptString = <<<script
+require([
+    'quickLink',
+    'Collab_QuickLink/js/resolver',
+    'domReady!'],
+    (quicklink, resolver) => {
+    var options = resolver({$initOptions});
+        quicklink.listen(options);
+});
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/javascript'], $scriptString, false) ?>

@@ -1,0 +1,34 @@
+{
+    "name": "collab/module-quicklink",
+    "version": "1.0.0",
+    "description": "Faster subsequent page-loads by prefetching or prerendering in-viewport links during idle time.",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Marcin Jędrzejewski",
+            "email": "m.jedrzejewski@collab.pl"
+        }
+    ],
+    "homepage": "https://github.com/collabpl/magento2-module-quicklink",
+    "keywords": [
+        "magento",
+        "magento2",
+        "quicklink",
+        "pagespeed",
+        "prefetch"
+    ],
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Collab\\QuickLink\\": ""
+        }
+    }
+}

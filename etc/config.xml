@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Collab QuickLink for Magento
+ *
+ * @author      Marcin Jędrzejewski <m.jedrzejewski@collab.pl>
+ * @copyright   Copyright 2024 Collab
+ * @license     MIT
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <collab_quicklink>
+                <general>
+                    <enabled>1</enabled>
+                    <priority>0</priority>
+                    <timeout>2000</timeout>
+                    <throttle>8</throttle>
+                    <threshold>0.1</threshold>
+                    <prerender>0</prerender>
+                    <delay>100</delay>
+                    <ignores><![CDATA[
+/api/,
+#,
+account,
+catalogsearch,
+checkout,
+logout,
+wishlist]]>
+                    </ignores>
+                </general>
+        </collab_quicklink>
+    </default>
+</config>
