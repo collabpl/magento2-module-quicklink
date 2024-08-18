@@ -1,6 +1,6 @@
 {
     "name": "collab/module-quicklink",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Faster subsequent page-loads by prefetching or prerendering in-viewport links during idle time.",
     "type": "magento2-module",
     "authors": [

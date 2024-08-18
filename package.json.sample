@@ -1,0 +1,23 @@
+{
+  "name": "magento2-module-quicklink",
+  "version": "1.0.0",
+  "description": "The Collab_QuickLink module allows You to embeed and configure [quicklink](https://getquick.link/) in Your  Magento 2 store.",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collabpl/magento2-module-quicklink.git"
+  },
+  "author": "Marcin Jędrzejewski <m.jedrzejewski@collab.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collabpl/magento2-module-quicklink/issues"
+  },
+  "homepage": "https://github.com/collabpl/magento2-module-quicklink#readme",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-uglify": "^5.2.2"
+  }
+}
