@@ -24,14 +24,7 @@ $ignores[] = $viewModel->getIgnores();
 
 <?php
 $scriptString = <<<script
-require([
-    'quickLink',
-    'Collab_QuickLink/js/resolver',
-    'domReady!'],
-    (quicklink, resolver) => {
-    var options = resolver({$initOptions});
-        quicklink.listen(options);
-});
+require(["quickLink","Collab_QuickLink/js/resolver","domReady!"],(i,n)=>{n=n({$initOptions});i.listen(n)});
 script;
 ?>
 <?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/javascript'], $scriptString, false) ?>
