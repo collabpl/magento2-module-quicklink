@@ -8,7 +8,7 @@
 var config = {
     map: {
         '*': {
-            quickLink: 'https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js'
+            quickLink: 'https://unpkg.com/quicklink@3.0.1/dist/quicklink.umd.js'
         }
     }
 };

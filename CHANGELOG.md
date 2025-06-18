@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 ### Changed
 
+## 1.0.3 - 2025-06-19
+### Changed
+- Quicklink JS library updated to version 3.0.1
+
 ## 1.0.2 - 2024-08-22
 ### Added
 - `csp_whitelist.xml`
